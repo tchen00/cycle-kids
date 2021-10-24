@@ -1,0 +1,46 @@
+.NavBar-container {
+    /* padding: var(--m) var(--l); */
+    /*background-color: var(--primary);*/
+    background: var(--verylightblue);
+    /* border-bottom: 1vw solid var(--verylightblue); */
+    max-width: 100%;
+    max-height: 10vh;
+    align-items: center;
+  }
+
+.NavBar-linkContainer {
+    width: 70%;
+    margin: var(--s) var(--m) ;
+    vertical-align: middle;
+    display: inline-flex;
+    justify-content: flex-start;
+
+  }
+
+.NavBar-loginContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 20%;
+    max-width: 20%;
+    height: 90%;
+    max-height: 90%;
+  }
+
+  .NavBar-link,
+  .NavBar-link:visited {
+    /* color: var(--navbar-header); */
+    color:black;
+    font-size: 1.5vw;
+    opacity: 1;
+    font-weight: bold;
+    /* text-decoration: underline; */
+    display: flex;
+    align-items: center;
+  }
+  .NavBar-link:hover {
+    opacity: 0.5;
+  }
+  .NavBar-link + .NavBar-link {
+    margin-left: 1.5vw;
+  }
