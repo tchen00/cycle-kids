@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import firebase from 'firebase/app'
-import "firebase/auth"
-import "firebase/firestore"
+import {getAuth} from "firebase/auth"
+// import "firebase/firestore"
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -12,11 +11,11 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = app.auth();
-export const db = app.firestore();
+export const auth = getAuth(app);
+// export const db = app.firestore();
 export default app;
