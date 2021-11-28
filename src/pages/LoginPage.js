@@ -118,11 +118,6 @@ const LoginPage = () => {
                 </div> */}
                 <div></div>
 
-                <div className="text-sm">
-                  <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                    Forgot your password?
-                  </a>
-                </div>
               </div>
 
               <div className="space-y-6">
@@ -132,6 +127,12 @@ const LoginPage = () => {
                 >
                   Sign in
                 </button>
+                <div className="text-sm text-right">
+                  {/* add functionality for this later: */}
+                  <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Forgot your password?
+                  </a>
+                </div>
                 <div className={err ? "rounded-md bg-red-50 p-4" : "hidden"}>
                 <div className="flex">
 
