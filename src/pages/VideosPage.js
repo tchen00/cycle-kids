@@ -19,7 +19,7 @@ const VideosPage = () => {
   if (user) {
     return(
       <AppLayout>
-          <ReactPlayer url='https://vimeo.com/488687239' controls='true' onProgress={(progress) => {
+          <ReactPlayer url='https://vimeo.com/488687239' controls={true} onProgress={(progress) => {
          setPlayed(progress.playedSeconds);
        }} onPause={handlePause}
      />
