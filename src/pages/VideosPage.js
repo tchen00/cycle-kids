@@ -11,7 +11,7 @@ const VideosPage = () => {
 
   
   const [played, setPlayed] = useState(0);
-  function handlePlay(){
+  function handlePause(){
     console.log(user.email, played)
   }
 
@@ -21,7 +21,7 @@ const VideosPage = () => {
       <AppLayout>
           <ReactPlayer url='https://vimeo.com/488687239' controls='true' onProgress={(progress) => {
          setPlayed(progress.playedSeconds);
-       }} onPause={handlePlay}
+       }} onPause={handlePause}
      />
           
       </AppLayout>
