@@ -3,6 +3,11 @@ import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
 import { auth } from '../config/firebase'
+import video1 from "../assets/video1thumbnail.jpeg"
+import video2 from "../assets/video2thumbnail.jpeg"
+import video3 from "../assets/video3thumbnail.jpeg"
+import video4 from "../assets/video4thumbnail.jpeg"
+import { Link, useNavigate } from "react-router-dom";
 
 const VideosPage = () => {
 
@@ -31,10 +36,29 @@ const VideosPage = () => {
   if (user) {
     return(
       <AppLayout>
-          <ReactPlayer url='https://vimeo.com/488687239' controls={true} onProgress={(progress) => {
-         setPlayed(progress.playedSeconds);
-       }} onPause={handlePause}
-     />
+        <div>
+
+
+          <p>Helmet Fit</p>
+          <Link to='/videos/helmet-fit'> 
+            <img src={video1}/>
+          </Link>
+
+          <p>Bike ABCs</p>
+          <Link to='/videos/bike-abcs'> 
+            <img src={video2}/>
+          </Link>
+
+          <p>Gearing and Braking</p>
+          <Link to='/videos/gearing-and-braking'> 
+            <img src={video3}/>
+          </Link>
+
+          <p>Road and Communication</p>
+          <Link to='/videos/road-and-communication'> 
+            <img src={video4}/>
+          </Link>
+        </div>
           
       </AppLayout>
     )
