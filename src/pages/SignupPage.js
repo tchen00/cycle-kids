@@ -31,7 +31,7 @@ const SignupPage = () => {
       if (user) {
         setUser(true)
         getDoc(doc(db, "users", user.uid)).then((result) => {
-          if (result.data().type = 'admin'){
+          if (result.data().type === 'admin'){
             setAdmin(true)
           }
         })
@@ -76,7 +76,7 @@ const SignupPage = () => {
 
   function handleChange(e) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    console.log(credentials)
+    // console.log(credentials)
   }
 
   if (pageLoading) {

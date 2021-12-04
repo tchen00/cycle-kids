@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LandingLayout from "../layouts/LandingLayout";
 import {signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../config/firebase'
+import { doc, getDoc } from "firebase/firestore"; 
+import { auth, db } from '../config/firebase'
 
 const LoginPage = () => {
 
@@ -29,7 +30,14 @@ const LoginPage = () => {
           console.log("sign in successful!")
           setLoading(false);
           setAccountCreated(true);
-          navigate("/signup")
+          getDoc(doc(db, "users", user.user.uid)).then((result) => {
+            if (result.data().type === 'admin'){
+              navigate("/signup")
+            }
+            else{
+              navigate("/videos")
+            }
+          })
         // })
       })
       .then(() => {
@@ -44,7 +52,7 @@ const LoginPage = () => {
 
   function handleChange(e) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    console.log(credentials)
+    // console.log(credentials)
   }
 
   return (
