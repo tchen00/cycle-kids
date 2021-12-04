@@ -1,14 +1,24 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from '../config/firebase'
 import logo from "../assets/logo.jpg"
-// const navigation = [
-//   { name: 'Solutions', href: '#' },
-//   { name: 'Pricing', href: '#' },
-//   { name: 'Docs', href: '#' },
-//   { name: 'Company', href: '#' },
-// ]
 
-const LandingLayout = ({children}) => {
+const navigation = [
+  { name: 'Users', path: '/' },
+  { name: 'Video Data', path: '/' },
+]
+
+const AdminAppLayout = ({children}) => {
+
+  const navigate = useNavigate();
+
+  function handleSignOut(){
+    signOut(auth).then(() => {
+      navigate("/")
+    })
+  }
+
   return(
     <div>
       <header className="bg-white shadow-md">
@@ -25,27 +35,21 @@ const LandingLayout = ({children}) => {
                   alt='logo'
                 />
               </Link>
-              {/* <div className="hidden ml-10 space-x-8 lg:block">
-                {navigation.map((link) => (
-                  <a key={link.name} href={link.href} className="text-base font-medium text-white hover:text-indigo-50">
-                    {link.name}
-                  </a>
-                ))}
-              </div> */}
             </div>
-            <div className="ml-10 space-x-4">
-              {/* <Link
-                to="/"
-                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
-              >
-                Sign in
-              </Link> */}
-              <Link
-                to="/"
+            <div className="flex items-center ml-10 space-x-10">
+              <div className="hidden ml-10 space-x-8 lg:block">
+                {navigation.map((link) => (
+                  <Link to={link.path} key={link.name} href={link.href} className="text-base font-medium text-cycleOrange hover:underline">
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              <button
                 className="inline-block bg-cycleOrange py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:shadow"
+                onClick={handleSignOut}
               >
-                Sign in
-              </Link>
+                Log out
+              </button>
             </div>
           </div>
           {/* <div className="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
@@ -64,4 +68,4 @@ const LandingLayout = ({children}) => {
   )
 }
 
-export default LandingLayout;
+export default AdminAppLayout;
