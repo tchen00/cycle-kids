@@ -3,6 +3,7 @@ import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
 import { auth } from '../config/firebase'
+import { Link, useNavigate } from "react-router-dom";
 
 const RoadAndCommunicationPage = () => {
 
@@ -31,6 +32,9 @@ const RoadAndCommunicationPage = () => {
   if (user) {
     return(
       <AppLayout>
+        <Link to='/videos'>
+          <p>Return to Main</p>
+        </Link>
           <ReactPlayer url='https://vimeo.com/652631281' controls={true} onProgress={(progress) => {
          setPlayed(progress.playedSeconds);
        }} onPause={handlePause}
