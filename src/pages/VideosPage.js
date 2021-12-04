@@ -24,7 +24,7 @@ const VideosPage = () => {
   
   const [played, setPlayed] = useState(0);
   function handlePause(){
-    console.log(user.email, played)
+    console.log(auth.currentUser.email, played)
   }
 
   // display based on user login 
