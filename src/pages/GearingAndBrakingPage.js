@@ -25,18 +25,21 @@ const GearingAndBrakingPage = () => {
   }, [])
   
   const [played, setPlayed] = useState(0);
+  const [playedPercentage, setPercentage] = useState(0);
   function handlePause(){
     const timePlayed = played.toString()
-   
+    const percentagePlayed = (Math.round(playedPercentage*100)).toString()
     setDoc(doc(db, "GearingAndBraking", auth.currentUser.uid), {
       type: 'GearingAndBraking',
       email: auth.currentUser.email,
       timePlayed: timePlayed,
+      percentagePlayed: percentagePlayed+'%',
     }).then(() => {
       console.log('time recorded')
     }
     )
   }
+ 
 
   // display based on user login 
   if (user) {
@@ -48,6 +51,7 @@ const GearingAndBrakingPage = () => {
           </Link>
             <ReactPlayer url='https://vimeo.com/652629798' controls={true} onProgress={(progress) => {
           setPlayed(progress.playedSeconds);
+          setPercentage(progress.played);
         }} onPause={handlePause}
       />
         </div>

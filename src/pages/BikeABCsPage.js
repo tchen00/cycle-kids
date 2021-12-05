@@ -26,13 +26,15 @@ const BikeABCsPage = () => {
   
    
  const [played, setPlayed] = useState(0);
+ const [playedPercentage, setPercentage] = useState(0);
  function handlePause(){
    const timePlayed = played.toString()
-  
+   const percentagePlayed = (Math.round(playedPercentage*100)).toString()
    setDoc(doc(db, "BikeABCs", auth.currentUser.uid), {
      type: 'BikeABCs',
      email: auth.currentUser.email,
      timePlayed: timePlayed,
+     percentagePlayed: percentagePlayed+'%',
    }).then(() => {
      console.log('time recorded')
    }
@@ -50,6 +52,7 @@ const BikeABCsPage = () => {
           </Link>
             <ReactPlayer url='https://vimeo.com/652627671' controls={true} onProgress={(progress) => {
           setPlayed(progress.playedSeconds);
+          setPercentage(progress.played)
         }} onPause={handlePause}
       />
         </div>    
