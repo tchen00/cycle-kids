@@ -7,9 +7,9 @@ import { auth, db } from '../config/firebase'
 
 const SignupPage = () => {
 
-  const [pageLoading, setPageLoading] = useState(true)
-  const [user, setUser] = useState(false);
-  const [admin, setAdmin] = useState(false);
+  const [pageLoading, setPageLoading] = useState(false)
+  // const [user, setUser] = useState(false);
+  // const [admin, setAdmin] = useState(false);
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -25,25 +25,25 @@ const SignupPage = () => {
   const [accountCreated, setAccountCreated] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(async () => {
+  // useEffect(async () => {
 
-    const unsub = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(true)
-        getDoc(doc(db, "users", user.uid)).then((result) => {
-          if (result.data().type === 'admin'){
-            setAdmin(true)
-          }
-        })
-      } else {
-        // User is not signed in.
-      }
-      setPageLoading(false)
-    });
+  //   const unsub = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUser(true)
+  //       getDoc(doc(db, "users", user.uid)).then((result) => {
+  //         if (result.data().type === 'admin'){
+  //           setAdmin(true)
+  //         }
+  //       })
+  //     } else {
+  //       // User is not signed in.
+  //     }
+  //     setPageLoading(false)
+  //   });
 
-    return unsub
+  //   return unsub
 
-  }, [])
+  // }, [])
 
   function handleSubmit(e) {
     e.preventDefault(); //prevents form from refreshing
@@ -88,7 +88,7 @@ const SignupPage = () => {
   }
 
   return (
-    (user && admin) ?
+    // (user && admin) ?
     <AppLayout>
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
@@ -215,18 +215,18 @@ const SignupPage = () => {
         </div>
       </div>
     </AppLayout>
-    :
-    <AppLayout>
-      {/* <div className="min-h-full pt-16 pb-12 flex flex-col bg-white">
-        <main className="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-16">
-            <div className="text-center">
-              <h1 className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">Sorry, you're not authorized to view this page.</h1>
-            </div>
-          </div>
-        </main>
-      </div> */}
-    </AppLayout>
+    // :
+    // <AppLayout>
+    //   {/* <div className="min-h-full pt-16 pb-12 flex flex-col bg-white">
+    //     <main className="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+    //       <div className="py-16">
+    //         <div className="text-center">
+    //           <h1 className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">Sorry, you're not authorized to view this page.</h1>
+    //         </div>
+    //       </div>
+    //     </main>
+    //   </div> */}
+    // </AppLayout>
     )
 
 }
