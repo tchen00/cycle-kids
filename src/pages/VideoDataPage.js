@@ -104,7 +104,7 @@ const VideoDataPage = () => {
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                      >
-                       Time Played
+                       Time Played (Seconds)
                      </th>
  
                      {/* <th scope="col" className="relative px-6 py-3">
@@ -141,7 +141,7 @@ const VideoDataPage = () => {
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                      >
-                       Time Played
+                       Time Played (Seconds)
                      </th>
  
                      {/* <th scope="col" className="relative px-6 py-3">
@@ -178,7 +178,7 @@ const VideoDataPage = () => {
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                      >
-                       Time Played
+                       Time Played (Seconds)
                      </th>
  
                      {/* <th scope="col" className="relative px-6 py-3">
@@ -215,7 +215,7 @@ const VideoDataPage = () => {
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                      >
-                       Time Played
+                       Time Played (Seconds)
                      </th>
  
                      {/* <th scope="col" className="relative px-6 py-3">
