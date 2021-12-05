@@ -2,7 +2,8 @@ import React, {cloneElement, useState, useEffect} from "react";
 import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
-import { auth } from '../config/firebase'
+import { doc, setDoc } from "firebase/firestore"; 
+import { auth, db } from '../config/firebase'
 import { Link, useNavigate } from "react-router-dom";
 
 const GearingAndBrakingPage = () => {
@@ -25,7 +26,16 @@ const GearingAndBrakingPage = () => {
   
   const [played, setPlayed] = useState(0);
   function handlePause(){
-    console.log(user.email, played)
+    const timePlayed = played.toString()
+   
+    setDoc(doc(db, "GearingAndBraking", auth.currentUser.uid), {
+      type: 'GearingAndBraking',
+      email: auth.currentUser.email,
+      timePlayed: timePlayed,
+    }).then(() => {
+      console.log('time recorded')
+    }
+    )
   }
 
   // display based on user login 

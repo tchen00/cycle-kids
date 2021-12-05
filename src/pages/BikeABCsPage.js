@@ -1,9 +1,10 @@
-import React, {cloneElement, useState, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
-import { auth } from '../config/firebase'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore"; 
+import { auth, db } from '../config/firebase'
 
 const BikeABCsPage = () => {
 
@@ -23,10 +24,21 @@ const BikeABCsPage = () => {
 
   }, [])
   
-  const [played, setPlayed] = useState(0);
-  function handlePause(){
-    console.log(user.email, played)
-  }
+   
+ const [played, setPlayed] = useState(0);
+ function handlePause(){
+   const timePlayed = played.toString()
+  
+   setDoc(doc(db, "BikeABCs", auth.currentUser.uid), {
+     type: 'BikeABCs',
+     email: auth.currentUser.email,
+     timePlayed: timePlayed,
+   }).then(() => {
+     console.log('time recorded')
+   }
+   )
+ }
+
 
   // display based on user login 
   if (user) {
