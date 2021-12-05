@@ -18,6 +18,11 @@ const SignupPage = () => {
     lastName: "",
     schoolName: ""
   });
+
+  const [createdCredentials, setCreatedCredentials] = useState({
+    email: "", 
+    password: ""
+  })
   // const { signup } = useAuth();
   // const auth = getAuth();
   const [err, setErr] = useState("");
@@ -61,6 +66,7 @@ const SignupPage = () => {
         }).then(() => {
           // setTimeout(() => history.push("/finish-profile"), 500);
           console.log("account created!")
+          setCreatedCredentials({email: credentials.email, password: credentials.password})
           setLoading(false);
           setAccountCreated(true);
         })
@@ -203,7 +209,7 @@ const SignupPage = () => {
                 <div className="flex">
 
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-green-800">Successfully created account. <Link to="/" className="underline hover:text-green-700">Click here</Link> to log in.</p>
+                    <p className="text-sm font-medium text-green-800">Successfully created account for {createdCredentials.email} with password "{createdCredentials.password}". <Link to="/" className="underline hover:text-green-700">Click here</Link> to log in.</p>
                   </div>
                   <div className="ml-auto pl-3">
 
