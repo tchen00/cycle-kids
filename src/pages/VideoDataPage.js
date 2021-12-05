@@ -90,7 +90,7 @@ const VideoDataPage = () => {
          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
            <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
              <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-               <p>Helmit Fit</p>
+               <p className="px-6 py-3 text-xl font-medium">Helmet Fit</p>
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
@@ -127,7 +127,7 @@ const VideoDataPage = () => {
                  </tbody>
                </table>
               
-               <p>Bike ABCs</p>
+               <p className="px-6 pb-3 pt-8 text-xl font-medium border-t">Bike ABCs</p>
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
@@ -164,7 +164,7 @@ const VideoDataPage = () => {
                  </tbody>
                </table>
               
-               <p>Gearing and Braking</p>
+               <p className="px-6 pb-3 pt-8 text-xl font-medium border-t">Gearing and Braking</p>
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
@@ -201,7 +201,7 @@ const VideoDataPage = () => {
                  </tbody>
                </table>
               
-               <p>Road and Communication</p>
+               <p className="px-6 pb-3 pt-8 text-xl font-medium border-t">Road and Communication</p>
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
