@@ -42,14 +42,15 @@ const HelmetFitPage = () => {
   if (user) {
     return(
       <AppLayout>
-        <Link to='/videos'>
-          <p>Return to Main</p>
-        </Link>
-          <ReactPlayer url='https://vimeo.com/652625878' controls={true} onProgress={(progress) => {
-         setPlayed(progress.playedSeconds);
-       }} onPause={handlePause}
-     />
-          
+        <div className="px-8 py-8">
+          <Link to='/videos'>
+            <p className="pb-4 hover:underline">Return to Main</p>
+          </Link>
+            <ReactPlayer url='https://vimeo.com/652625878' controls={true} onProgress={(progress) => {
+          setPlayed(progress.playedSeconds);
+        }} onPause={handlePause}
+      />
+        </div>
       </AppLayout>
     )
   } else {

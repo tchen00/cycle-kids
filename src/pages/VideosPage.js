@@ -36,25 +36,24 @@ const VideosPage = () => {
   if (user) {
     return(
       <AppLayout>
-        <div>
+        <div className="grid justify-items-center text-center my-8">
 
-
-          <p>Helmet Fit</p>
+          <p className="text-2xl font-semibold mb-4">Helmet Fit</p>
           <Link to='/videos/helmet-fit'> 
             <img src={video1}/>
           </Link>
 
-          <p>Bike ABCs</p>
+          <p className="text-2xl font-semibold mb-4 mt-8">Bike ABCs</p>
           <Link to='/videos/bike-abcs'> 
             <img src={video2}/>
           </Link>
 
-          <p>Gearing and Braking</p>
+          <p className="text-2xl font-semibold mb-4 mt-8">Gearing and Braking</p>
           <Link to='/videos/gearing-and-braking'> 
             <img src={video3}/>
           </Link>
 
-          <p>Road and Communication</p>
+          <p className="text-2xl font-semibold mb-4 mt-8">Road and Communication</p>
           <Link to='/videos/road-and-communication'> 
             <img src={video4}/>
           </Link>
