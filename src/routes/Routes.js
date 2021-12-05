@@ -8,6 +8,7 @@ import HelmetFitPage from '../pages/HelmetFitPage'
 import BikeABCsPage from '../pages/BikeABCsPage'
 import GearingAndBrakingPage from '../pages/GearingAndBrakingPage'
 import RoadAndCommunicationPage from '../pages/RoadAndCommunicationPage'
+import UsersPage from '../pages/UsersPage'
 import PasswordResetPage from "../pages/PasswordResetPage";
 
 const routes = () => {
@@ -20,6 +21,7 @@ const routes = () => {
       <Route path="/videos/road-and-communication" element={<RoadAndCommunicationPage />}/>
       <Route path="/signup" element={<SignupPage />}/>
       <Route path="/reset-password" element={<PasswordResetPage />}/>
+      <Route path="/users" element={<UsersPage />} />
       <Route path="/" element={<LoginPage />}/>
     </Routes>
   )
