@@ -10,6 +10,7 @@ import GearingAndBrakingPage from '../pages/GearingAndBrakingPage'
 import RoadAndCommunicationPage from '../pages/RoadAndCommunicationPage'
 import UsersPage from '../pages/UsersPage'
 import PasswordResetPage from "../pages/PasswordResetPage";
+import VideoDataPage from "../pages/VideoDataPage"
 
 const routes = () => {
 	return (
@@ -21,6 +22,7 @@ const routes = () => {
       <Route path="/videos/road-and-communication" element={<RoadAndCommunicationPage />}/>
       <Route path="/signup" element={<SignupPage />}/>
       <Route path="/reset-password" element={<PasswordResetPage />}/>
+      <Route path="/videodata" element={<VideoDataPage />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/" element={<LoginPage />}/>
     </Routes>

@@ -2,7 +2,8 @@ import React, {cloneElement, useState, useEffect} from "react";
 import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
-import { auth } from '../config/firebase'
+import { doc, setDoc } from "firebase/firestore"; 
+import { auth, db } from '../config/firebase'
 import { Link, useNavigate } from "react-router-dom";
 
 const RoadAndCommunicationPage = () => {
@@ -25,9 +26,17 @@ const RoadAndCommunicationPage = () => {
   
   const [played, setPlayed] = useState(0);
   function handlePause(){
-    console.log(user.email, played)
+    const timePlayed = played.toString()
+   
+    setDoc(doc(db, "RoadAndCommunication", auth.currentUser.uid), {
+      type: 'RoadAndCommunication',
+      email: auth.currentUser.email,
+      timePlayed: timePlayed,
+    }).then(() => {
+      console.log('time recorded')
+    }
+    )
   }
-
   // display based on user login 
   if (user) {
     return(
