@@ -25,19 +25,21 @@ const HelmetFitPage = () => {
   }, [])
   
   const [played, setPlayed] = useState(0);
+  const [playedPercentage, setPercentage] = useState(0);
   function handlePause(){
     const timePlayed = played.toString()
-   
+    const percentagePlayed = (Math.round(playedPercentage*100)).toString()
     setDoc(doc(db, "HelmitFit", auth.currentUser.uid), {
       type: 'HelmitFit',
       email: auth.currentUser.email,
       timePlayed: timePlayed,
+      percentagePlayed: percentagePlayed+'%',
     }).then(() => {
       console.log('time recorded')
     }
     )
   }
-
+ 
   // display based on user login 
   if (user) {
     return(
@@ -48,6 +50,7 @@ const HelmetFitPage = () => {
           </Link>
             <ReactPlayer url='https://vimeo.com/652625878' controls={true} onProgress={(progress) => {
           setPlayed(progress.playedSeconds);
+          setPercentage(progress.played);
         }} onPause={handlePause}
       />
         </div>

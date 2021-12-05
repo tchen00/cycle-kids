@@ -47,7 +47,7 @@ const AdminAppLayout = ({children}) => {
   }, [])
 
   return(
-    user & admin ?
+    // user & admin ?
       <div>
         <header className="bg-white shadow-md">
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
@@ -93,9 +93,9 @@ const AdminAppLayout = ({children}) => {
         <div>{children}</div>
 
       </div>
-    :
-      <AppLayout>
-      </AppLayout>
+    // :
+    //   <AppLayout>
+    //   </AppLayout>
   )
 }
 
