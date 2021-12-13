@@ -3,18 +3,27 @@ import AppLayout from "../layouts/AppLayout";
 import LandingLayout from "../layouts/LandingLayout";
 import ReactPlayer from 'react-player'
 import { Link } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore"; 
 import { auth, db } from '../config/firebase'
 
 const BikeABCsPage = () => {
 
   const [user, setUser] = useState(false)
+  const [userName, setUserName] = useState("");
 
   useEffect(async () => {
 
-    const unsub = auth.onAuthStateChanged((user) => {
+    const unsub = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(true)
+
+        const q = query(collection(db, "users"), where("email", "==", auth.currentUser.email));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          setUserName(doc.data().firstName + " " + doc.data().lastName);
+        });
+
       } else {
         // User is not signed in.
       }
@@ -33,6 +42,7 @@ const BikeABCsPage = () => {
    setDoc(doc(db, "BikeABCs", auth.currentUser.uid), {
      type: 'BikeABCs',
      email: auth.currentUser.email,
+     userName: userName,
      timePlayed: timePlayed,
      percentagePlayed: percentagePlayed+'%',
    }).then(() => {

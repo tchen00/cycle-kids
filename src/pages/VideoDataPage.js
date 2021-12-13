@@ -17,6 +17,7 @@ const VideoDataPage = () => {
             console.log("doc:", doc.data())
            return ({
             videoID: doc.id,
+            userName: doc.data().userName ? doc.data().userName : "N/A",
             email: doc.data().email,
             playedTime: doc.data().timePlayed,
             percentagePlayed: doc.data().percentagePlayed,
@@ -36,6 +37,7 @@ const VideoDataPage = () => {
             console.log("doc:", doc.data())
            return ({
             videoID: doc.id,
+            userName: doc.data().userName ? doc.data().userName : "N/A",
             email: doc.data().email,
             playedTime: doc.data().timePlayed,
             percentagePlayed: doc.data().percentagePlayed,
@@ -55,6 +57,7 @@ const VideoDataPage = () => {
            console.log("doc:", doc.data())
            return ({
            videoID: doc.id,
+           userName: doc.data().userName ? doc.data().userName : "N/A",
            email: doc.data().email,
            playedTime: doc.data().timePlayed,
            percentagePlayed: doc.data().percentagePlayed,
@@ -74,9 +77,10 @@ const VideoDataPage = () => {
             console.log("doc:", doc.data())
            return ({
             videoID: doc.id,
+            userName: doc.data().userName ? doc.data().userName : "N/A",
             email: doc.data().email,
             playedTime: doc.data().timePlayed,
-            percentagePlayed: doc.data().percentagePlayed,
+            percentagePlayed: Math.round(doc.data().percentagePlayed),
            })
            }
        )).then((result) => {
@@ -98,6 +102,12 @@ const VideoDataPage = () => {
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
+                    <th
+                       scope="col"
+                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                     >
+                       User Name
+                     </th>
                      <th
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -125,6 +135,7 @@ const VideoDataPage = () => {
                  <tbody className="bg-white divide-y divide-gray-200">
                    {HelmitFit.map((video) => (
                      <tr key={video.videoID}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.userName}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.email}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.playedTime}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.percentagePlayed}</td>
@@ -142,6 +153,12 @@ const VideoDataPage = () => {
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
+                    <th
+                       scope="col"
+                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                     >
+                       User Name
+                     </th>
                      <th
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -169,6 +186,7 @@ const VideoDataPage = () => {
                  <tbody className="bg-white divide-y divide-gray-200">
                    {BikeABCs.map((video) => (
                      <tr key={video.videoID}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.userName}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.email}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.playedTime}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.percentagePlayed}</td>
@@ -186,6 +204,12 @@ const VideoDataPage = () => {
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
+                    <th
+                       scope="col"
+                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                     >
+                       User Name
+                     </th>
                      <th
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -213,6 +237,7 @@ const VideoDataPage = () => {
                  <tbody className="bg-white divide-y divide-gray-200">
                    {GAndB.map((video) => (
                      <tr key={video.videoID}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.userName}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.email}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.playedTime}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.percentagePlayed}</td>
@@ -230,6 +255,12 @@ const VideoDataPage = () => {
                <table className="min-w-full divide-y divide-gray-200">
                  <thead className="bg-gray-50">
                    <tr>
+                    <th
+                       scope="col"
+                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                     >
+                       User Name
+                     </th>
                      <th
                        scope="col"
                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -257,6 +288,7 @@ const VideoDataPage = () => {
                  <tbody className="bg-white divide-y divide-gray-200">
                    {RAndC.map((video) => (
                      <tr key={video.videoID}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.userName}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.email}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.playedTime}</td>
                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{video.percentagePlayed}</td>

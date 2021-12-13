@@ -60,7 +60,7 @@ const SignupPage = () => {
         setDoc(doc(db, "users", user.user.uid), {
           type: 'user',
           firstName: credentials.firstName,
-          lastName: credentials.firstName,
+          lastName: credentials.lastName,
           schoolName: credentials.schoolName,
           email: credentials.email
         }).then(() => {
